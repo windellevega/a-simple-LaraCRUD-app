@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('contents.dashboard-home');
 });
+
+Route::get('record/add', ['as' => 'record-add', 'uses' => 'RecordController@index']);
+
+Route::get('record/all', ['as' => 'record-all', 'uses' => 'RecordController@view']);
