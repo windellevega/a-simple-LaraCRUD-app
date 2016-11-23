@@ -9,7 +9,7 @@ git clone https://windellevega@bitbucket.org/techventures/laravel-crud.git
 Retrieve additional Laravel 5.3 files
 
 ```
-composer-update
+composer update
 ```
 
 Run project
