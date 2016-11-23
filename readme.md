@@ -25,6 +25,25 @@ Run project
 php artisan serve
 ```
 
+#Setting up the Database using migrations
+
+Create a mysql database and name it as `laravel-crud`
+
+Edit `.env.example` file and put you database information 
+```
+DB_HOST = <your database address>
+DB_DATABASE = laravel-crud
+DB_USERNAME = <your database username>
+DB_PASSWORD = <your database password>
+```
+save it as `.env`
+
+Apply your database migrations
+
+```
+php artisan migrate
+```
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
