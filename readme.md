@@ -1,3 +1,23 @@
+# How to Setup and Run
+
+Clone the project to your local repository
+
+```
+git clone https://windellevega@bitbucket.org/techventures/laravel-crud.git
+```
+
+Retrieve additional Laravel 5.3 files
+
+```
+composer-update
+```
+
+Run project
+
+```
+php artisan serve
+```
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
