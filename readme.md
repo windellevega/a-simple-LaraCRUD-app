@@ -1,6 +1,8 @@
 #Requirements
 •PHP 5.6.4 or higher
+
 •Composer
+
 •Git
 
 # How to Setup and Run
