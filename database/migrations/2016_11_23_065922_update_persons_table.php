@@ -14,7 +14,7 @@ class UpdatePersonsTable extends Migration
     public function up()
     {
         //
-        Schema::table('persons', function(Blueprint $table) {
+        Schema::table('people', function(Blueprint $table) {
             $table->foreign('deptid')
                 ->references('id')
                 ->on('departments');

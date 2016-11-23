@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('record/add', ['as' => 'record-add', 'uses' => 'RecordController@index']);
 
 Route::get('record/all', ['as' => 'record-all', 'uses' => 'RecordController@view']);
+
+Route::post('record/add', ['as' => 'record-store', 'uses' => 'RecordController@store']);

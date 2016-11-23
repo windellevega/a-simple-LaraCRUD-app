@@ -17,44 +17,47 @@
 @endsection
 
 @section('content')
+	@include('errors.forms')
 	<div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Form Elements</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <form role="form">
+                        <form role="form" method="post" action="{{ route('record-store') }}">
+
+                        	{{ csrf_field() }}
                         
                             <div class="form-group">
                                 <label>First Name</label>
-                                <input class="form-control" placeholder="First Name">
+                                <input class="form-control" name="fname" placeholder="First Name">
                             </div>
                                                             
                             <div class="form-group">
                                 <label>Middle Name</label>
-                                <input class="form-control" placeholder="Middle Name">
+                                <input class="form-control" name="mname" placeholder="Middle Name">
                             </div>
 
                             <div class="form-group">
                                 <label>Last Name</label>
-                                <input class="form-control" placeholder="Last Name">
+                                <input class="form-control" name="lname" placeholder="Last Name">
                             </div>
 
                             <div class="form-group">
-                                <label>Radio Buttons</label>
+                                <label>Gender</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Male
+                                        <input type="radio" name="gender" id="genderm" value="M" checked>Male
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Female
+                                        <input type="radio" name="gender" id="genderf" value="F">Female
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option2">Others
+                                        <input type="radio" name="gender" id="gendero" value="O">Others
                                     </label>
                                 </div>
                             </div>
@@ -65,17 +68,27 @@
                         <div class="col-md-6">
                         	<div class="form-group">
                                 <label>Birth Date</label>
-                                <input class="form-control" type="date">
+                                <input class="form-control" name="bdate" type="date">
                             </div>
                         
                             <div class="form-group">
                                 <label>Address</label>
-                                <textarea class="form-control" style="height:109px;" placeholder="Address"></textarea>
+                                <textarea class="form-control" name="address" placeholder="Address"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>About Me</label>
-                                <textarea class="form-control" style="height:85px;" placeholder="Say something about you..."></textarea>
+                                <textarea class="form-control" name="aboutme" placeholder="Say something about you..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select class="form-control" name="dept">
+	                               	@foreach($departments as $dept)
+                                		<option value="{{ $dept->id }}"> {{ $dept->deptabbv }}</option>
+                                	@endforeach
+
+                                </select>
                             </div>
 
                         </div>

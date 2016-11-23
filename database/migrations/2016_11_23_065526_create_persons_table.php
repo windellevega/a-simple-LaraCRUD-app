@@ -14,7 +14,7 @@ class CreatePersonsTable extends Migration
     public function up()
     {
         //
-        Schema::create('persons', function(Blueprint $table) {
+        Schema::create('people', function(Blueprint $table) {
             $table->increments('id');
             $table->string('firstname', 50);
             $table->string('middlename', 50);
@@ -24,6 +24,7 @@ class CreatePersonsTable extends Migration
             $table->string('address');
             $table->string('aboutme');
             $table->integer('deptid')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -35,6 +36,6 @@ class CreatePersonsTable extends Migration
     public function down()
     {
         //
-        Schema::drop('persons');
+        Schema::drop('people');
     }
 }
