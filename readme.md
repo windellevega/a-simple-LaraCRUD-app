@@ -38,10 +38,13 @@ DB_PASSWORD = <your database password>
 ```
 save it as `.env`
 
-Apply your database migrations
+Apply your database migrations and seeds
 
 ```
 php artisan migrate
+```
+```
+php artisan db:seed --class=DepartmentsTableSeeder
 ```
 
 # Laravel PHP Framework
