@@ -5,9 +5,9 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li><a href="{{ url('/') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-        <li><a href="{{ route('record-list') }}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
-        <li><a href="{{ route('record-add') }}"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
+        <li id="dashboard"><a href="{{ url('/') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+        <li id="tables"><a href="{{ route('record-list') }}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
+        <li id="forms"><a href="{{ route('record-add') }}"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
         <li role="presentation" class="divider"></li>
     </ul>
 

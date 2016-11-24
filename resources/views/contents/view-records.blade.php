@@ -77,4 +77,7 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript">
+        $('#tables').addClass('active');
+    </script>
 @endsection

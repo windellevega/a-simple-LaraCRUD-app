@@ -21,7 +21,7 @@
 	<div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Form Elements</div>
+                <div class="panel-heading">Person Information</div>
                 <div class="panel-body">
                     <div class="col-md-6">
                         <form role="form" method="post" action="{{ route('record-store') }}">
@@ -97,4 +97,10 @@
             </div>
         </div><!-- /.col-->
     </div><!-- /.row -->
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        $('#forms').addClass('active');
+    </script>
 @endsection
