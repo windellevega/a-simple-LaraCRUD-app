@@ -10,6 +10,6 @@ class Department extends Model
 		'gender', 'birthday', 'address', 'aboutme', 'deptid'];
     //
     public function Person(){
-    	return $this->belongsTo('App\Person');
+    	return $this->hasMany('App\Person');
     }
 }

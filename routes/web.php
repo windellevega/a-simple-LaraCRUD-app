@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('record/add', ['as' => 'record-add', 'uses' => 'RecordController@index']);
 
-Route::get('record/all', ['as' => 'record-all', 'uses' => 'RecordController@view']);
+Route::get('record/list', ['as' => 'record-list', 'uses' => 'RecordController@listRecords']);
 
 Route::post('record/add', ['as' => 'record-store', 'uses' => 'RecordController@store']);
+
+Route::post('record/delete/{id}', ['as' => 'record-delete', 'uses' => 'RecordController@destroy']);

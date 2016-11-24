@@ -17,20 +17,58 @@
 @endsection
 
 @section('content')
+    @include('errors.forms')
 	<div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Advanced Table</div>
+                <div class="panel-heading">Records</div>
                 <div class="panel-body">
-                    <table data-toggle="table" data-url="{{ asset('assets/tables/data1.json') }}"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true" >Item ID</th>
-                            <th data-field="id" data-sortable="true">Item ID</th>
-                            <th data-field="name"  data-sortable="true">Item Name</th>
-                            <th data-field="price" data-sortable="true">Item Price</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Birthday</th>
+                            <th>Address</th>
+                            <th>About Me</th>
+                            <th>Department</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
+                        <tbody>
+                            @forelse($records as $record)
+                            <tr>
+                                <td scope="row">{{ $record->firstname }}</td>
+                                <td>{{ $record->middlename }}</td>
+                                <td>{{ $record->lastname }}</td>
+                                <td>{{ $record->gender }}</td>
+                                <td>{{ $record->birthday }}</td>
+                                <td>{{ $record->address }}</td>
+                                <td>{{ $record->aboutme }}</td>
+                                <td>{{ $record->department->deptabbv }}</td>
+                                <td width="50px;">
+                                    <form style="width:25px;float:left;">
+                                        {{ csrf_field() }}
+                                        <button type="submit" style="border:0;background:none;">
+                                            <span style="color:green;" class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                    </form>
+                                    <form style="width:25px;float:right;" action="{{ route('record-delete', ['id' => $record->id]) }}" method="post">
+                                        {{ csrf_field() }}
+                                        <button type="submit" style="border:0;background:none;">
+                                            <span style="color:red;" class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="8"><center>No Records Found!</center></td>
+                            </tr>
+                            @endforelse
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -39,5 +77,4 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('assets/js/bootstrap-table.js') }}"></script>
 @endsection

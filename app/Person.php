@@ -9,6 +9,6 @@ class Person extends Model
 	protected $fillable = ['deptabbv', 'deptname'];
     //
     public function Department() {
-    	return $this->hasOne('App\Department');
+    	return $this->belongsTo('App\Department', 'deptid');
     }
 }

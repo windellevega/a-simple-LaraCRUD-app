@@ -21,11 +21,6 @@ class RecordController extends Controller
         return view('contents.add-record')->with('departments', $depts);
     }
 
-    public function view()
-    {
-        return view('contents.view-records');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -84,6 +79,13 @@ class RecordController extends Controller
     public function show($id)
     {
         //
+
+    }
+    
+    public function listRecords(){
+        $people = Person::all();
+        $people->load('Department');
+        return view('contents.view-records')->with('records', $people);
     }
 
     /**
@@ -118,5 +120,8 @@ class RecordController extends Controller
     public function destroy($id)
     {
         //
+        $person = Person::find($id);
+        $person->delete();
+        return redirect()->back()->with('message', 'Record successfully deleted!');
     }
 }
