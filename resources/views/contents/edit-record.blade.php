@@ -24,9 +24,11 @@
                 <div class="panel-heading">Person Information</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <form role="form" method="post" action="{{ route('record-update', ['id' => $person->id]) }}"">
+                        <form role="form" method="post" action="{{ route('record-update', ['id' => $person->id]) }}">
 
                         	{{ csrf_field() }}
+                        	
+                        	{{ method_field('PUT') }}
                         
                             <div class="form-group">
                                 <label>First Name</label>

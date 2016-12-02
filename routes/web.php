@@ -23,6 +23,6 @@ Route::get('record/list', ['as' => 'record-list', 'uses' => 'RecordController@in
 
 Route::post('record/add', ['as' => 'record-store', 'uses' => 'RecordController@store']);
 
-Route::post('record/delete/{id}', ['as' => 'record-delete', 'uses' => 'RecordController@destroy']);
+Route::delete('record/delete/{id}', ['as' => 'record-delete', 'uses' => 'RecordController@destroy']);
 
-Route::post('record/update/{id}', ['as' => 'record-update', 'uses' => 'RecordController@update']);
+Route::put('record/update/{id}', ['as' => 'record-update', 'uses' => 'RecordController@update']);

@@ -56,6 +56,7 @@
                                     </form>
                                     <form style="width:25px;float:right;" action="{{ route('record-delete', ['id' => $record->id]) }}" method="post">
                                         {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
                                         <button type="submit" style="border:0;background:none;">
                                             <span style="color:red;" class="glyphicon glyphicon-remove"></span>
                                         </button>
