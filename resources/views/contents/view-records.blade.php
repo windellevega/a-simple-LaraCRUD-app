@@ -49,8 +49,7 @@
                                 <td>{{ $record->aboutme }}</td>
                                 <td>{{ $record->department->deptabbv }}</td>
                                 <td width="50px;">
-                                    <form style="width:25px;float:left;">
-                                        {{ csrf_field() }}
+                                    <form style="width:25px;float:left;" action="{{ route('record-edit', ['id' => $record->id]) }}" method="get">
                                         <button type="submit" style="border:0;background:none;">
                                             <span style="color:green;" class="glyphicon glyphicon-pencil"></span>
                                         </button>

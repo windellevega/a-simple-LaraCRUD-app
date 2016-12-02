@@ -16,9 +16,9 @@ class RecordController extends Controller
      */
     public function index()
     {
-        $depts = Department::all();
-
-        return view('contents.add-record')->with('departments', $depts);
+        $people = Person::all();
+        $people->load('Department');
+        return view('contents.view-records')->with('records', $people);   
     }
 
     /**
@@ -28,7 +28,9 @@ class RecordController extends Controller
      */
     public function create()
     {
-        //
+        $depts = Department::all();
+
+        return view('contents.add-record')->with('departments', $depts);
     }
 
     /**
@@ -81,12 +83,6 @@ class RecordController extends Controller
         //
 
     }
-    
-    public function listRecords(){
-        $people = Person::all();
-        $people->load('Department');
-        return view('contents.view-records')->with('records', $people);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -97,6 +93,10 @@ class RecordController extends Controller
     public function edit($id)
     {
         //
+        $person = Person::find($id);
+        $depts = Department::all();
+        
+        return view('contents.edit-record')->with('person', $person)->with('departments', $depts);
     }
 
     /**
@@ -109,6 +109,20 @@ class RecordController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $person = Person::find($id);
+        
+        $person->firstname = $request->fname;
+        $person->middlename = $request->mname;
+        $person->lastname = $request->lname;
+        $person->gender = $request->gender;
+        $person->birthday = $request->bdate;
+        $person->address = $request->address;
+        $person->aboutme = $request->aboutme;
+        $person->deptid = $request->dept;
+        
+        $person->save();
+        
+        return redirect()->back()->with('message', 'Record successfully edited!');
     }
 
     /**

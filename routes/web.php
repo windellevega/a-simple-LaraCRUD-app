@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('contents.dashboard-home');
 });
 
-Route::get('record/add', ['as' => 'record-add', 'uses' => 'RecordController@index']);
+Route::get('record/add', ['as' => 'record-add', 'uses' => 'RecordController@create']);
 
-Route::get('record/list', ['as' => 'record-list', 'uses' => 'RecordController@listRecords']);
+Route::get('record/edit/{id}', ['as' => 'record-edit', 'uses' => 'RecordController@edit']);
+
+Route::get('record/list', ['as' => 'record-list', 'uses' => 'RecordController@index']);
 
 Route::post('record/add', ['as' => 'record-store', 'uses' => 'RecordController@store']);
 
 Route::post('record/delete/{id}', ['as' => 'record-delete', 'uses' => 'RecordController@destroy']);
+
+Route::post('record/update/{id}', ['as' => 'record-update', 'uses' => 'RecordController@update']);
