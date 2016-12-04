@@ -30,67 +30,71 @@
                         
                             <div class="form-group">
                                 <label>First Name</label>
-                                <input class="form-control" name="fname" placeholder="First Name">
+                                <input class="form-control" name="fname" placeholder="First Name" value="{{ old('fname') }}">
                             </div>
                                                             
                             <div class="form-group">
                                 <label>Middle Name</label>
-                                <input class="form-control" name="mname" placeholder="Middle Name">
+                                <input class="form-control" name="mname" placeholder="Middle Name" value="{{ old('mname') }}">
                             </div>
 
                             <div class="form-group">
                                 <label>Last Name</label>
-                                <input class="form-control" name="lname" placeholder="Last Name">
+                                <input class="form-control" name="lname" placeholder="Last Name" value="{{ old('lname') }}">
                             </div>
 
                             <div class="form-group">
                                 <label>Gender</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="gender" id="genderm" value="M" checked>Male
+                                        <input type="radio" name="gender" id="genderm" value="M" @if(old('gender') == 'M') checked @endif >Male
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="gender" id="genderf" value="F">Female
+                                        <input type="radio" name="gender" id="genderf" value="F" @if(old('gender') == 'F') checked @endif >Female
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="gender" id="gendero" value="O">Others
+                                        <input type="radio" name="gender" id="gendero" value="O" @if(old('gender') == 'O') checked @endif>Others
                                     </label>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn btn-primary">Add Record</button>
                             
                         </div>
                         <div class="col-md-6">
                         	<div class="form-group">
                                 <label>Birth Date</label>
-                                <input class="form-control" name="bdate" type="date">
+                                <input class="form-control" name="bdate" type="date" value="{{ old('bdate') }}">
                             </div>
                         
                             <div class="form-group">
                                 <label>Address</label>
-                                <textarea class="form-control" name="address" placeholder="Address"></textarea>
+                                <textarea class="form-control" name="address" placeholder="Address">{{ old('address') }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>About Me</label>
-                                <textarea class="form-control" name="aboutme" placeholder="Say something about you..."></textarea>
+                                <textarea class="form-control" name="aboutme" placeholder="Say something about you...">{{ old('aboutme') }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Department</label>
-                                <select class="form-control" name="dept">
+                                <select class="form-control" name="dept" value="{{ old('dept') }}">
                                     
 	                               	@foreach($departments as $dept)
-                                		<option value="{{ $dept->id }}"> {{ $dept->deptabbv }}</option>
+	                               	    @if(old('dept') == $dept->id)
+                                		    <option value="{{ $dept->id }}" selected> {{ $dept->deptabbv }}</option>
+                                		@else
+                                		    <option value="{{ $dept->id }}"> {{ $dept->deptabbv }}</option>
+                                		@endif
                                 	@endforeach
 
                                 </select>
                             </div>
+                            
+                            <button type="submit" class="btn btn-primary">Add Record</button>
 
                         </div>
                     </form>

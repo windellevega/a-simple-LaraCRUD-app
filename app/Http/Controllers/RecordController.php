@@ -108,6 +108,19 @@ class RecordController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = \Validator::make($request->all(), [
+                        'fname' => 'required',
+                        'mname' => 'required',
+                        'lname' => 'required',
+                        'gender' => 'required',
+                        'bdate' => 'required',
+                        'address' => 'required',
+                        'dept' => 'required'
+        ]);
+        
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         //
         $person = Person::find($id);
         

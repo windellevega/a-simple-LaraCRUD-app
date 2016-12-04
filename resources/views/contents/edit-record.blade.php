@@ -63,8 +63,6 @@
                                     </label>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn btn-primary">Save Record</button>
                             
                         </div>
                         <div class="col-md-6">
@@ -95,6 +93,9 @@
                             </div>
 
                         </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Record</button>
+                        
                     </form>
                 </div>
             </div>
