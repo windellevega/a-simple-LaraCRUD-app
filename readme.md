@@ -1,9 +1,14 @@
 #About this app
 This is a simple laravel app exemplifying these basic laravel functionalities and components:
+
 •CRUD (Create, Read, Update, Delete) functionalities.
+
 •Laravel Blade Templating (Converted Lumino (Bootstrap Template) to Blade Template)
+
 •Laravel HTTP Controllers
+
 •MVC Basics 
+
 •Migrations and Seeding
 
 
