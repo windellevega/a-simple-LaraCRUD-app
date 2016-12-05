@@ -24,7 +24,7 @@ This is a simple laravel app exemplifying these basic laravel functionalities an
 Clone the project to your local repository
 
 ```
-git clone https://windellevega@bitbucket.org/techventures/laravel-crud.git
+https://github.com/windellevega/a-simple-LaraCRUD-app.git
 ```
 
 Retrieve additional Laravel 5.3 files
